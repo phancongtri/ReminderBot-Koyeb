@@ -7,24 +7,30 @@ const TOKEN = '7578384719:AAE7BWfKE5BQzQ1ExjFyHJ1zqespNccn-Jc'; // Thay bằng t
 // 🔥 URL app của Koyeb (THAY BẰNG URL THẬT CỦA MÀY)
 const WEBHOOK_URL = 'https://liberal-rosamond-phancongtri-f7272613.koyeb.app';
 
-// Tạo bot với webhook
+// Khởi tạo bot với webhook
 const bot = new TelegramBot(TOKEN);
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// Xử lý dữ liệu từ Telegram
+// Middleware xử lý JSON từ Telegram
 app.use(express.json());
 app.post(`/bot${TOKEN}`, (req, res) => {
     bot.processUpdate(req.body);
     res.sendStatus(200);
 });
 
-// Đặt webhook để bot nhận tin nhắn
-bot.setWebHook(`${WEBHOOK_URL}/bot${TOKEN}`);
+// 📌 Health Check để Koyeb nhận diện service đã chạy
+app.get("/", (req, res) => {
+    res.send("OK - Bot is running!");
+});
 
+// Lắng nghe cổng trên Koyeb
 app.listen(PORT, () => {
     console.log(`✅ Server đang chạy trên port ${PORT}`);
 });
+
+// Đặt webhook để bot nhận tin nhắn từ Telegram
+bot.setWebHook(`${WEBHOOK_URL}/bot${TOKEN}`);
 
 const reminders = {}; // Lưu nhắc nhở theo chatId
 
