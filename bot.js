@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 
 // 🔥 Thay token bot Telegram của mày vào đây
-const TOKEN = '7578384719:AAE7BWfKE5BQzQ1ExjFyHJ1zqespNccn-Jc';
+const TOKEN = '7578384719:AAE7BWfKE5BQzQ1ExjFyHJ1zqespNccn-Jc'; // Thay bằng token thật của bot
 
 // 🔥 URL app của Koyeb (THAY BẰNG URL THẬT CỦA MÀY)
 const WEBHOOK_URL = 'https://liberal-rosamond-phancongtri-f7272613.koyeb.app';
@@ -28,7 +28,7 @@ app.listen(PORT, () => {
 
 const reminders = {}; // Lưu nhắc nhở theo chatId
 
-// 📌 Khi bấm /start => Chỉ hiển thị tin nhắn, KHÔNG CÒN MENU
+// 📌 Khi bấm /start => Chỉ hiển thị tin nhắn hướng dẫn
 bot.onText(/\/start/, (msg) => {
     bot.sendMessage(msg.chat.id, "Chào mừng bạn đến với bot nhắc nhở! Hãy sử dụng các lệnh sau:\n\n" +
         "/add [nội dung] [HH:MM] [ngày] - Thêm nhắc nhở một lần\n" +
