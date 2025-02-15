@@ -17,7 +17,7 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 });
 
 // Đặt webhook để bot nhận tin nhắn
-bot.setWebHook(`https://reminder-bot.koyeb.app/bot${TOKEN}`);
+bot.setWebHook(`https://passing-shantee-phancongtri-7ef1cd3b.koyeb.app/bot${TOKEN}`);
 
 app.listen(PORT, () => {
     console.log(`Bot đang chạy trên port ${PORT}`);
