@@ -5,7 +5,7 @@ const express = require('express');
 const TOKEN = '7578384719:AAE7BWfKE5BQzQ1ExjFyHJ1zqespNccn-Jc';
 
 // 🔥 URL app của Koyeb (THAY BẰNG URL THẬT CỦA MÀY)
-const WEBHOOK_URL = 'https://passing-shantee-phancongtri-7ef1cd3b.koyeb.app';
+const WEBHOOK_URL = 'https://liberal-rosamond-phancongtri-f7272613.koyeb.app';
 
 // Tạo bot với webhook
 const bot = new TelegramBot(TOKEN);
